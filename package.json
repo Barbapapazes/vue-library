@@ -11,9 +11,14 @@
   },
   "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "tsconfig.json"
+  ],
   "scripts": {
     "prepack": "unbuild",
-    "release": "changelogen --release && npm publish && git push --follow-tags"
+    "release": "changelogen --release && npm publish --access public && git push --follow-tags"
   },
   "author": "Estéban Soubiran <e.soubiran25@gmail.com> (https://github.com/barbapapazes/)",
   "license": "MIT",
