@@ -1,8 +1,15 @@
-import { ref, type MaybeRefOrGetter, toValue, watchEffect } from "vue";
+import { ref, type MaybeRefOrGetter, toValue, watchEffect, Ref } from "vue";
 import { ofetch } from "ofetch";
 import { GitHubUser } from "../types";
 
-export const useGitHubUser = (name: MaybeRefOrGetter<string>) => {
+interface UseGitHubUser {
+  user: Ref<GitHubUser | null>;
+  isLoading: Ref<boolean>;
+}
+
+export const useGitHubUser = (
+  name: MaybeRefOrGetter<string>
+): UseGitHubUser => {
   const user = ref<GitHubUser | null>(null);
   const isLoading = ref(false);
 
